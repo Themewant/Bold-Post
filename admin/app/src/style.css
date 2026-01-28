@@ -1,0 +1,77 @@
+body.toplevel_page_bold-post #wpcontent {
+  padding-left: 0 !important;
+}
+
+.menu-top.toplevel_page_bold-post .wp-menu-image img {
+  height: 17px;
+  opacity: 1 !important;
+}
+
+#bldpst-dashboard .bold-post-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+#bldpst-dashboard .bold-post-logo img {
+  height: 40px;
+}
+
+.ant-notification {
+  top: 50px !important;
+}
+
+.bldpst-options-title {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-top: 0;
+}
+
+.bldpst-block-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f1f2fa;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+.bldpst-block-item .meta {
+  display: flex;
+  align-content: center;
+  gap: 10px;
+}
+.bldpst-block-item .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  width: 60px;
+  height: 60px;
+  padding: 12px;
+  border-radius: 8px;
+}
+.bldpst-block-item .icon img {
+  height: 30px;
+  width: 30px;
+}
+.bldpst-block-item .content {
+  align-content: center;
+}
+.bldpst-block-item .content strong {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--easy-title-color);
+  line-height: 1.2;
+}
+.bldpst-block-item .content p {
+  margin: 0;
+}
+
+[id^=inspector-box-control-][id$=-heading],
+.block-editor-block-inspector .components-base-control .components-base-control__label {
+  text-transform: capitalize;
+}
+
+.eshb-responsive-content [id^=inspector-box-control-][id$=-heading] {
+  display: none;
+}/*# sourceMappingURL=style.css.map */

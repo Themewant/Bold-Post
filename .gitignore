@@ -1,0 +1,17 @@
+# all zip files
+*.zip
+
+# all md files
+*.md
+
+# all node_modules files
+node_modules
+
+# all .DS_Store files
+.DS_Store
+
+# qodo files
+.qodo
+
+# .gemini files
+.gemini

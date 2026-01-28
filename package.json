@@ -1,0 +1,23 @@
+{
+  "name": "bold-post",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "wp-scripts start admin/app/src/index.js --output-path=admin/app/build",
+    "start:blockEditor": "wp-scripts start editor/app/src/index.js --output-path=editor/app/build",
+    "build": "wp-scripts build admin/app/src/index.js --output-path=admin/app/build && npm run build:blockEditor && npm run build:postGrid && npm run build:postList && npm run build:postSlider && npm run build:categoryList",
+    "build:dashboard": "wp-scripts build admin/app/src/index.js --output-path=admin/app/build",
+    "build:postList": "wp-scripts build --blocks-manifest --webpack-src-dir=public/blocks/post-list/src --output-path=public/blocks/post-list/build",
+    "build:postGrid": "wp-scripts build --blocks-manifest --webpack-src-dir=public/blocks/post-grid/src --output-path=public/blocks/post-grid/build",
+    "build:postSlider": "wp-scripts build --blocks-manifest --webpack-src-dir=public/blocks/post-slider/src --output-path=public/blocks/post-slider/build",
+    "build:categoryList": "wp-scripts build --blocks-manifest --webpack-src-dir=public/blocks/category-list/src --output-path=public/blocks/category-list/build",
+    "build:blockEditor": "wp-scripts build --blocks-manifest --webpack-src-dir=editor/app/src --output-path=editor/app/build"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^31.2.0"
+  },
+  "dependencies": {
+    "antd": "^6.1.4",
+    "@ant-design/icons": "^6.1.0"
+  }
+}

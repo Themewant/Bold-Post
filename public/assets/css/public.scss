@@ -1,0 +1,11 @@
+@import 'bldpst-icon';
+
+:root {
+    --bldpst-preset-color-primary: #126bf0;
+    --bldpst-preset-color-secondary: #5096ff;
+    --bldpst-preset-color-tertiary: #f3f3f3;
+    --bldpst-preset-color-white: var(--wp--preset--color--white, #ffffff);
+    --bldpst-preset-color-contrast-1: var(--wp--preset--color--contrast, #1e1e1e);
+    --bldpst-preset-color-contrast-2: var(--wp--preset--color--contrast, #424242);
+    --bldpst-preset-hover-transition: 0.4s ease;
+}
