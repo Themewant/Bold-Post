@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Bold Post
- * Description: Bold Post Plugin, post display plugin for gutenberg, elementor and bricks builder.
+ * Description: Bold Post Plugin, post display plugin for gutenberg page builder.
  * Plugin URI:  https://themewant.com/downloads/bold-post/
  * Author:      Themewant
  * Author URI:  http://themewant.com/
