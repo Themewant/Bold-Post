@@ -183,10 +183,10 @@
 				.boldpo-blog-content {
 					position: absolute;
 					bottom: 0;
-					padding: 30px;
+					padding: 0 30px 30px;
 					display: flex;
 					flex-direction: column;
-					height: -webkit-fill-available;
+					height: max-content;
 					justify-content: flex-end;
 				}
 

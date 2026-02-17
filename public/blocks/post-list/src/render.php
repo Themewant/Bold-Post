@@ -73,7 +73,6 @@ if ( ! empty( $i_border_radius['left'] ) ) $item_desktop['border-bottom-right-ra
 
 $item_responsive['desktop'] = array_merge($item_responsive['desktop'], $item_desktop);
 
-
 // Item Style Global
 $item_styles = [];
 if ( ! empty( $attributes['itemBackgroundColor'] ) ) {
@@ -84,6 +83,14 @@ if ( ! empty( $attributes['itemBackgroundColorTwo'] ) ) {
 }
 if ( ! empty( $attributes['itemBackgroundGradient'] ) ) {
     $item_styles['background'] = $attributes['itemBackgroundGradient'];
+}
+
+if ( ! empty( $attributes['itemBoxShadow'] ) ) {
+    $item_styles['box-shadow'] = BOLDPO_Helper::box_shadow_to_css($attributes['itemBoxShadow']);
+}
+
+if ( ! empty( $attributes['itemBorder'] ) ) {
+    $item_styles['border'] = BOLDPO_Helper::border_to_css($attributes['itemBorder']);
 }
 
 // Hover background

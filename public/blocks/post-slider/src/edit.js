@@ -33,6 +33,8 @@ import ImageRadioControl from '../../custom-components/ImageRadioControl';
 import ResponsiveWrapper from '../../custom-components/ResponsiveWrapper';
 import RangeControlWithUnit from '../../custom-components/RangeControlWithUnit';
 import TextAlignControl from '../../custom-components/TextAlignControl';
+import BoxShadowControl from '../../custom-components/BoxShadowControls';
+import BorderControl from '../../custom-components/BorderControl';
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -635,6 +637,18 @@ export default function Edit({ attributes, setAttributes }) {
 							);
 						}}
 					</TabPanel>
+					<Divider />
+					<BoxShadowControl
+						label={__('Box Shadow', 'boldpost')}
+						value={attributes.itemBoxShadow}
+						onChange={(value) => setAttributes({ itemBoxShadow: value })}
+					/>
+					<Divider />
+					<BorderControl
+						label={__('Border', 'boldpost')}
+						value={attributes.itemBorder}
+						onChange={(value) => setAttributes({ itemBorder: value })}
+					/>
 					<Divider />
 					<ResponsiveWrapper label={__('Padding', 'boldpost')}>
 						{(device) => (

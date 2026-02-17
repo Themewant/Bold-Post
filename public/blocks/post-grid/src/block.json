@@ -93,67 +93,25 @@
 			]
 		},
 		"itemPadding": {
-			"type": "object",
-			"default": {
-				"top": "0px",
-				"right": "0px",
-				"bottom": "0px",
-				"left": "0px"
-			}
+			"type": "object"
 		},
 		"itemMargin": {
-			"type": "object",
-			"default": {
-				"top": "0px",
-				"right": "0px",
-				"bottom": "0px",
-				"left": "0px"
-			}
+			"type": "object"
 		},
 		"itemBorderRadius": {
-			"type": "object",
-			"default": {
-				"top": "0px",
-				"right": "0px",
-				"bottom": "0px",
-				"left": "0px"
-			}
+			"type": "object"
 		},
 		"itemTitlePadding": {
-			"type": "object",
-			"default": {
-				"top": "0px",
-				"right": "0px",
-				"bottom": "0px",
-				"left": "0px"
-			}
+			"type": "object"
 		},
 		"itemTitleMargin": {
-			"type": "object",
-			"default": {
-				"top": "0px",
-				"right": "0px",
-				"bottom": "0px",
-				"left": "0px"
-			}
+			"type": "object"
 		},
 		"itemExcerptPadding": {
-			"type": "object",
-			"default": {
-				"top": "0px",
-				"right": "0px",
-				"bottom": "0px",
-				"left": "0px"
-			}
+			"type": "object"
 		},
 		"itemExcerptMargin": {
-			"type": "object",
-			"default": {
-				"top": "0px",
-				"right": "0px",
-				"bottom": "0px",
-				"left": "0px"
-			}
+			"type": "object"
 		},
 		"itemTitleTypography": {
 			"type": "object",
@@ -180,31 +138,13 @@
 			}
 		},
 		"contentPadding": {
-			"type": "object",
-			"default": {
-				"top": "0px",
-				"right": "0px",
-				"bottom": "0px",
-				"left": "0px"
-			}
+			"type": "object"
 		},
 		"readMorePadding": {
-			"type": "object",
-			"default": {
-				"top": "0px",
-				"right": "0px",
-				"bottom": "0px",
-				"left": "0px"
-			}
+			"type": "object"
 		},
 		"readMoreMargin": {
-			"type": "object",
-			"default": {
-				"top": "0px",
-				"right": "0px",
-				"bottom": "0px",
-				"left": "0px"
-			}
+			"type": "object"
 		},
 		"readMoreTypography": {
 			"type": "object",
@@ -219,13 +159,7 @@
 			}
 		},
 		"readMoreBorderRadius": {
-			"type": "object",
-			"default": {
-				"top": "0px",
-				"right": "0px",
-				"bottom": "0px",
-				"left": "0px"
-			}
+			"type": "object"
 		},
 		"itemBackgroundColor": {
 			"type": "string",
@@ -266,6 +200,24 @@
 		"itemOverlayBackgroundGradientTwoHover": {
 			"type": "string",
 			"default": ""
+		},
+		"itemBoxShadow": {
+			"type": "object",
+			"default": {
+				"x": 0,
+				"y": 0,
+				"b": 0,
+				"s": 0,
+				"c": "rgba(0, 0, 0, 0)"
+			}
+		},
+		"itemBorder": {
+			"type": "object",
+			"default": {
+				"width": 0,
+				"color": "",
+				"style": "solid"
+			}
 		},
 		"itemGap": {
 			"type": "string",
@@ -333,13 +285,7 @@
 			"default": ""
 		},
 		"metaMargin": {
-			"type": "object",
-			"default": {
-				"top": "0px",
-				"right": "0px",
-				"bottom": "0px",
-				"left": "0px"
-			}
+			"type": "object"
 		},
 		"titleTag": {
 			"type": "string",
@@ -434,58 +380,22 @@
 			"default": "20px"
 		},
 		"itemPaddingTablet": {
-			"type": "object",
-			"default": {
-				"top": "0px",
-				"right": "0px",
-				"bottom": "0px",
-				"left": "0px"
-			}
+			"type": "object"
 		},
 		"itemPaddingMobile": {
-			"type": "object",
-			"default": {
-				"top": "0px",
-				"right": "0px",
-				"bottom": "0px",
-				"left": "0px"
-			}
+			"type": "object"
 		},
 		"itemTitlePaddingTablet": {
-			"type": "object",
-			"default": {
-				"top": "0px",
-				"right": "0px",
-				"bottom": "0px",
-				"left": "0px"
-			}
+			"type": "object"
 		},
 		"itemTitlePaddingMobile": {
-			"type": "object",
-			"default": {
-				"top": "0px",
-				"right": "0px",
-				"bottom": "0px",
-				"left": "0px"
-			}
+			"type": "object"
 		},
 		"itemTitleMarginTablet": {
-			"type": "object",
-			"default": {
-				"top": "0px",
-				"right": "0px",
-				"bottom": "0px",
-				"left": "0px"
-			}
+			"type": "object"
 		},
 		"itemTitleMarginMobile": {
-			"type": "object",
-			"default": {
-				"top": "0px",
-				"right": "0px",
-				"bottom": "0px",
-				"left": "0px"
-			}
+			"type": "object"
 		},
 		"itemTitleTypographyTablet": {
 			"type": "object",
@@ -536,40 +446,16 @@
 			}
 		},
 		"itemExcerptPaddingTablet": {
-			"type": "object",
-			"default": {
-				"top": "0px",
-				"right": "0px",
-				"bottom": "0px",
-				"left": "0px"
-			}
+			"type": "object"
 		},
 		"itemExcerptPaddingMobile": {
-			"type": "object",
-			"default": {
-				"top": "0px",
-				"right": "0px",
-				"bottom": "0px",
-				"left": "0px"
-			}
+			"type": "object"
 		},
 		"itemExcerptMarginTablet": {
-			"type": "object",
-			"default": {
-				"top": "0px",
-				"right": "0px",
-				"bottom": "0px",
-				"left": "0px"
-			}
+			"type": "object"
 		},
 		"itemExcerptMarginMobile": {
-			"type": "object",
-			"default": {
-				"top": "0px",
-				"right": "0px",
-				"bottom": "0px",
-				"left": "0px"
-			}
+			"type": "object"
 		},
 		"contentTextAlign": {
 			"type": "string",

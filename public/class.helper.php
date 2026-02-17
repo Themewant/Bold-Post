@@ -91,4 +91,20 @@ class BOLDPO_Helper {
 			}
 		}
 	}
+
+	public static function box_shadow_to_css($shadow) {
+		$x = self::ensure_unit($shadow['x'] ?? 0);
+		$y = self::ensure_unit($shadow['y'] ?? 0);
+		$b = self::ensure_unit($shadow['b'] ?? 0);
+		$s = self::ensure_unit($shadow['s'] ?? 0);
+		$c = $shadow['c'] ?? 'rgba(0,0,0,0)';
+		return "$x $y $b $s $c";
+	}
+
+	public static function border_to_css($border) {
+		$width = self::ensure_unit($border['width'] ?? 0);
+		$style = $border['style'] ?? 'solid';
+		$color = $border['color'] ?? 'rgba(0,0,0,0)';
+		return "$width $style $color";
+	}
 }

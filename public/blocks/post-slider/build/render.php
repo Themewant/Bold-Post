@@ -85,6 +85,14 @@ if ( ! empty( $i_border_radius['left'] ) ) $item_desktop['border-bottom-right-ra
 
 $item_responsive['desktop'] = array_merge($item_responsive['desktop'], $item_desktop);
 
+if ( ! empty( $attributes['itemBoxShadow'] ) ) {
+    $item_desktop['box-shadow'] = BOLDPO_Helper::box_shadow_to_css($attributes['itemBoxShadow']);
+}
+
+if ( ! empty( $attributes['itemBorder'] ) ) {
+    $item_desktop['border'] = BOLDPO_Helper::border_to_css($attributes['itemBorder']);
+}
+
 // Hover background
 $item_hover = [];
 if(!empty($attributes['itemBackgroundColorHover'])) {
@@ -263,6 +271,7 @@ $full_responsive_css .= BOLDPO_Helper::generate_responsive_css($selector . ' .bo
 
 wp_enqueue_style( $style_handle );
 BOLDPO_Helper::add_custom_style( $style_handle, $selector, $full_responsive_css, [
+    '.boldpo-post-slider .boldpo-grid-item'    => BOLDPO_Helper::get_inline_styles($item_desktop),
     '.boldpo-post-slider .boldpo-grid-item:hover'    => BOLDPO_Helper::get_inline_styles($item_hover),
     '.boldpo-post-slider .boldpo-grid-item .boldpo-overlay-all'        => BOLDPO_Helper::get_inline_styles($overlay_styles),
     '.boldpo-post-slider .boldpo-grid-item .boldpo-blog-title a:hover' => BOLDPO_Helper::get_inline_styles($title_hover),

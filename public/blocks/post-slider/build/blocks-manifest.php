@@ -86,148 +86,52 @@ return array(
 				)
 			),
 			'itemPadding' => array(
-				'type' => 'object',
-				'default' => array(
-					'top' => '0px',
-					'right' => '0px',
-					'bottom' => '0px',
-					'left' => '0px'
-				)
+				'type' => 'object'
 			),
 			'itemPaddingTablet' => array(
-				'type' => 'object',
-				'default' => array(
-					'top' => '0px',
-					'right' => '0px',
-					'bottom' => '0px',
-					'left' => '0px'
-				)
+				'type' => 'object'
 			),
 			'itemPaddingMobile' => array(
-				'type' => 'object',
-				'default' => array(
-					'top' => '0px',
-					'right' => '0px',
-					'bottom' => '0px',
-					'left' => '0px'
-				)
+				'type' => 'object'
 			),
 			'itemBorderRadius' => array(
-				'type' => 'object',
-				'default' => array(
-					'top' => '0px',
-					'right' => '0px',
-					'bottom' => '0px',
-					'left' => '0px'
-				)
+				'type' => 'object'
 			),
 			'itemTitlePadding' => array(
-				'type' => 'object',
-				'default' => array(
-					'top' => '0px',
-					'right' => '0px',
-					'bottom' => '0px',
-					'left' => '0px'
-				)
+				'type' => 'object'
 			),
 			'itemTitlePaddingTablet' => array(
-				'type' => 'object',
-				'default' => array(
-					'top' => '0px',
-					'right' => '0px',
-					'bottom' => '0px',
-					'left' => '0px'
-				)
+				'type' => 'object'
 			),
 			'itemTitlePaddingMobile' => array(
-				'type' => 'object',
-				'default' => array(
-					'top' => '0px',
-					'right' => '0px',
-					'bottom' => '0px',
-					'left' => '0px'
-				)
+				'type' => 'object'
 			),
 			'itemTitleMargin' => array(
-				'type' => 'object',
-				'default' => array(
-					'top' => '0px',
-					'right' => '0px',
-					'bottom' => '0px',
-					'left' => '0px'
-				)
+				'type' => 'object'
 			),
 			'itemTitleMarginTablet' => array(
-				'type' => 'object',
-				'default' => array(
-					'top' => '0px',
-					'right' => '0px',
-					'bottom' => '0px',
-					'left' => '0px'
-				)
+				'type' => 'object'
 			),
 			'itemTitleMarginMobile' => array(
-				'type' => 'object',
-				'default' => array(
-					'top' => '0px',
-					'right' => '0px',
-					'bottom' => '0px',
-					'left' => '0px'
-				)
+				'type' => 'object'
 			),
 			'itemExcerptPadding' => array(
-				'type' => 'object',
-				'default' => array(
-					'top' => '0px',
-					'right' => '0px',
-					'bottom' => '0px',
-					'left' => '0px'
-				)
+				'type' => 'object'
 			),
 			'itemExcerptPaddingTablet' => array(
-				'type' => 'object',
-				'default' => array(
-					'top' => '0px',
-					'right' => '0px',
-					'bottom' => '0px',
-					'left' => '0px'
-				)
+				'type' => 'object'
 			),
 			'itemExcerptPaddingMobile' => array(
-				'type' => 'object',
-				'default' => array(
-					'top' => '0px',
-					'right' => '0px',
-					'bottom' => '0px',
-					'left' => '0px'
-				)
+				'type' => 'object'
 			),
 			'itemExcerptMargin' => array(
-				'type' => 'object',
-				'default' => array(
-					'top' => '0px',
-					'right' => '0px',
-					'bottom' => '0px',
-					'left' => '0px'
-				)
+				'type' => 'object'
 			),
 			'itemExcerptMarginTablet' => array(
-				'type' => 'object',
-				'default' => array(
-					'top' => '0px',
-					'right' => '0px',
-					'bottom' => '0px',
-					'left' => '0px'
-				)
+				'type' => 'object'
 			),
 			'itemExcerptMarginMobile' => array(
-				'type' => 'object',
-				'default' => array(
-					'top' => '0px',
-					'right' => '0px',
-					'bottom' => '0px',
-					'left' => '0px'
-				)
+				'type' => 'object'
 			),
 			'itemTitleTypography' => array(
 				'type' => 'object',
@@ -310,22 +214,10 @@ return array(
 				'default' => '1'
 			),
 			'readMorePadding' => array(
-				'type' => 'object',
-				'default' => array(
-					'top' => '0px',
-					'right' => '0px',
-					'bottom' => '0px',
-					'left' => '0px'
-				)
+				'type' => 'object'
 			),
 			'readMoreMargin' => array(
-				'type' => 'object',
-				'default' => array(
-					'top' => '0px',
-					'right' => '0px',
-					'bottom' => '0px',
-					'left' => '0px'
-				)
+				'type' => 'object'
 			),
 			'readMoreTypography' => array(
 				'type' => 'object',
@@ -340,13 +232,7 @@ return array(
 				)
 			),
 			'readMoreBorderRadius' => array(
-				'type' => 'object',
-				'default' => array(
-					'top' => '0px',
-					'right' => '0px',
-					'bottom' => '0px',
-					'left' => '0px'
-				)
+				'type' => 'object'
 			),
 			'itemBackgroundColor' => array(
 				'type' => 'string',
@@ -388,6 +274,24 @@ return array(
 				'type' => 'string',
 				'default' => ''
 			),
+			'itemBoxShadow' => array(
+				'type' => 'object',
+				'default' => array(
+					'x' => 0,
+					'y' => 0,
+					'b' => 0,
+					's' => 0,
+					'c' => 'rgba(0, 0, 0, 0)'
+				)
+			),
+			'itemBorder' => array(
+				'type' => 'object',
+				'default' => array(
+					'width' => 0,
+					'color' => '',
+					'style' => 'solid'
+				)
+			),
 			'itemTitleColor' => array(
 				'type' => 'string',
 				'default' => ''
@@ -401,13 +305,7 @@ return array(
 				'default' => ''
 			),
 			'contentPadding' => array(
-				'type' => 'object',
-				'default' => array(
-					'top' => '0px',
-					'right' => '0px',
-					'bottom' => '0px',
-					'left' => '0px'
-				)
+				'type' => 'object'
 			),
 			'readMoreBackgroundColor' => array(
 				'type' => 'string',
@@ -459,13 +357,7 @@ return array(
 				'default' => ''
 			),
 			'metaMargin' => array(
-				'type' => 'object',
-				'default' => array(
-					'top' => '0px',
-					'right' => '0px',
-					'bottom' => '0px',
-					'left' => '0px'
-				)
+				'type' => 'object'
 			),
 			'titleTag' => array(
 				'type' => 'string',
@@ -596,13 +488,7 @@ return array(
 				'default' => ''
 			),
 			'navBorderRadius' => array(
-				'type' => 'object',
-				'default' => array(
-					'top' => '0px',
-					'right' => '0px',
-					'bottom' => '0px',
-					'left' => '0px'
-				)
+				'type' => 'object'
 			),
 			'showDots' => array(
 				'type' => 'boolean',
@@ -625,13 +511,7 @@ return array(
 				'default' => ''
 			),
 			'dotsBorderRadius' => array(
-				'type' => 'object',
-				'default' => array(
-					'top' => '0px',
-					'right' => '0px',
-					'bottom' => '0px',
-					'left' => '0px'
-				)
+				'type' => 'object'
 			),
 			'contentTextAlign' => array(
 				'type' => 'string',

@@ -162,31 +162,13 @@ return array(
 				)
 			),
 			'itemDescriptionMargin' => array(
-				'type' => 'object',
-				'default' => array(
-					'top' => '0px',
-					'right' => '0px',
-					'bottom' => '0px',
-					'left' => '0px'
-				)
+				'type' => 'object'
 			),
 			'itemDescriptionMarginTablet' => array(
-				'type' => 'object',
-				'default' => array(
-					'top' => '0px',
-					'right' => '0px',
-					'bottom' => '0px',
-					'left' => '0px'
-				)
+				'type' => 'object'
 			),
 			'itemDescriptionMarginMobile' => array(
-				'type' => 'object',
-				'default' => array(
-					'top' => '0px',
-					'right' => '0px',
-					'bottom' => '0px',
-					'left' => '0px'
-				)
+				'type' => 'object'
 			),
 			'itemTitleTypography' => array(
 				'type' => 'object',

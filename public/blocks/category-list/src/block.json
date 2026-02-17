@@ -157,31 +157,13 @@
             }
         },
         "itemDescriptionMargin": {
-            "type": "object",
-            "default": {
-                "top": "0px",
-                "right": "0px",
-                "bottom": "0px",
-                "left": "0px"
-            }
+            "type": "object"
         },
         "itemDescriptionMarginTablet": {
-            "type": "object",
-            "default": {
-                "top": "0px",
-                "right": "0px",
-                "bottom": "0px",
-                "left": "0px"
-            }
+            "type": "object"
         },
         "itemDescriptionMarginMobile": {
-            "type": "object",
-            "default": {
-                "top": "0px",
-                "right": "0px",
-                "bottom": "0px",
-                "left": "0px"
-            }
+            "type": "object"
         },
         "itemTitleTypography": {
             "type": "object",

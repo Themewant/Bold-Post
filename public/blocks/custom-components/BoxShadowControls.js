@@ -9,49 +9,34 @@ import {
     Icon
 } from '@wordpress/components';
 
-const BoxShadowControls = ({ attributes, setAttributes, state = 'normal' }) => {
-    const isHover = state === 'hover';
-    const xKey = isHover ? 'boxShadowXHover' : 'boxShadowX';
-    const yKey = isHover ? 'boxShadowYHover' : 'boxShadowY';
-    const bKey = isHover ? 'boxShadowBlurHover' : 'boxShadowBlur';
-    const sKey = isHover ? 'boxShadowSpreadHover' : 'boxShadowSpread';
-    const cKey = isHover ? 'boxShadowColorHover' : 'boxShadowColor';
-    const mainKey = isHover ? 'boxShadowHover' : 'boxShadow';
+const BoxShadowControls = ({ label, value, onChange }) => {
 
-    const boxShadowX = attributes[xKey];
-    const boxShadowY = attributes[yKey];
-    const boxShadowBlur = attributes[bKey];
-    const boxShadowSpread = attributes[sKey];
-    const boxShadowColor = attributes[cKey];
+    const shadowValue = {
+        x: value?.x ?? 0,
+        y: value?.y ?? 0,
+        b: value?.b ?? 0,
+        s: value?.s ?? 0,
+        c: value?.c || 'rgba(0,0,0,0)',
+    };
+
+    // Construct preview string
+    const { x, y, b, s, c } = shadowValue;
+    const shadowString = `${x}px ${y}px ${b}px ${s}px ${c}`;
 
     const [isVisible, setIsVisible] = useState(false);
 
     const toggleVisible = () => {
-        setIsVisible((state) => !state);
+        setIsVisible((hidden) => !hidden);
     };
 
-    const updateShadow = (newAttrs) => {
-        const nextAttributes = {
-            [xKey]: attributes[xKey],
-            [yKey]: attributes[yKey],
-            [bKey]: attributes[bKey],
-            [sKey]: attributes[sKey],
-            [cKey]: attributes[cKey],
-            ...newAttrs
-        };
+    const updateShadow = (newPart) => {
+        const nextValue = { ...shadowValue, ...newPart };
+        onChange(nextValue);
+    };
 
-        const x = nextAttributes[xKey];
-        const y = nextAttributes[yKey];
-        const b = nextAttributes[bKey];
-        const s = nextAttributes[sKey];
-        const c = nextAttributes[cKey];
-
-        const shadowString = `${x}px ${y}px ${b}px ${s}px ${c || 'rgba(0,0,0,0.1)'}`;
-
-        setAttributes({
-            ...newAttrs,
-            [mainKey]: shadowString
-        });
+    const handleColorChange = (color) => {
+        const hex = (color && typeof color === 'object') ? (color.hex || color.color) : color;
+        updateShadow({ c: hex });
     };
 
     return (
@@ -63,14 +48,15 @@ const BoxShadowControls = ({ attributes, setAttributes, state = 'normal' }) => {
             >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                     <div style={{
-                        width: '16px',
-                        height: '16px',
+                        width: '20px',
+                        height: '20px',
                         borderRadius: '4px',
-                        boxShadow: attributes[mainKey] || 'none',
-                        border: '1px solid #ccc',
-                        backgroundColor: '#fff'
+                        boxShadow: shadowString,
+                        border: '1px solid #ddd',
+                        background: '#fff',
+                        marginRight: '5px'
                     }} />
-                    {isHover ? __('Box Shadow (Hover)', 'boldpost') : __('Box Shadow Options', 'boldpost')}
+                    {label || __('Box Shadow', 'boldpost')}
                 </div>
                 <Icon icon="plus" />
             </Button>
@@ -79,38 +65,35 @@ const BoxShadowControls = ({ attributes, setAttributes, state = 'normal' }) => {
                     position="bottom center"
                     onFocusOutside={() => setIsVisible(false)}
                 >
-                    <div style={{ padding: '20px', width: '260px' }}>
+                    <div style={{ padding: '16px', width: '280px' }}>
                         <RangeControl
-                            label={__('Horizontal Offset', 'boldpost')}
-                            value={boxShadowX}
-                            onChange={(val) => updateShadow({ [xKey]: val })}
+                            label={__('Horizontal Offset (X)', 'boldpost')}
+                            value={x}
+                            onChange={(val) => updateShadow({ x: val })}
                             min={-50} max={50}
                         />
                         <RangeControl
-                            label={__('Vertical Offset', 'boldpost')}
-                            value={boxShadowY}
-                            onChange={(val) => updateShadow({ [yKey]: val })}
+                            label={__('Vertical Offset (Y)', 'boldpost')}
+                            value={y}
+                            onChange={(val) => updateShadow({ y: val })}
                             min={-50} max={50}
                         />
                         <RangeControl
                             label={__('Blur', 'boldpost')}
-                            value={boxShadowBlur}
-                            onChange={(val) => updateShadow({ [bKey]: val })}
+                            value={b}
+                            onChange={(val) => updateShadow({ b: val })}
                             min={0} max={100}
                         />
                         <RangeControl
                             label={__('Spread', 'boldpost')}
-                            value={boxShadowSpread}
-                            onChange={(val) => updateShadow({ [sKey]: val })}
+                            value={s}
+                            onChange={(val) => updateShadow({ s: val })}
                             min={-50} max={50}
                         />
                         <BaseControl label={__('Shadow Color', 'boldpost')} __nextHasNoMarginBottom={true}>
                             <ColorPicker
-                                color={boxShadowColor}
-                                onChange={(color) => {
-                                    const hex = (color && typeof color === 'object') ? color.hex : color;
-                                    updateShadow({ [cKey]: hex });
-                                }}
+                                color={c}
+                                onChange={handleColorChange}
                                 enableAlpha
                             />
                         </BaseControl>
@@ -118,19 +101,12 @@ const BoxShadowControls = ({ attributes, setAttributes, state = 'normal' }) => {
                             variant="secondary"
                             isSmall
                             onClick={() => {
-                                setAttributes({
-                                    [xKey]: 0,
-                                    [yKey]: 0,
-                                    [bKey]: 0,
-                                    [sKey]: 0,
-                                    [cKey]: 'rgba(0,0,0,0.1)',
-                                    [mainKey]: ''
-                                });
+                                onChange({ x: 0, y: 0, b: 0, s: 0, c: 'rgba(0,0,0,0)' });
                                 setIsVisible(false);
                             }}
                             style={{ marginTop: '10px', width: '100%', justifyContent: 'center' }}
                         >
-                            {__('Reset Shadow', 'boldpost')}
+                            {__('Reset', 'boldpost')}
                         </Button>
                     </div>
                 </Popover>
