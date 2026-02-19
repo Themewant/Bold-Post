@@ -9,3 +9,9 @@
     --boldpo-preset-color-contrast-2: #11111194;
     --boldpo-preset-hover-transition: 0.4s ease;
 }
+
+.boldpo-block a {
+    &:focus {
+        outline: none;
+    }
+}
