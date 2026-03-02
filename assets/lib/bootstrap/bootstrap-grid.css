@@ -1,6 +1,6 @@
 :root {
   --boldpo-breakpoint-xs: 0;
-  --boldpo-breakpoint-sm: 576px;
+  --boldpo-breakpoint-sm: 345px;
   --boldpo-breakpoint-md: 768px;
   --boldpo-breakpoint-lg: 992px;
   --boldpo-breakpoint-xl: 1200px;
@@ -1979,7 +1979,7 @@
   z-index: 3 !important;
 }
 
-@media (min-width: 576px) {
+@media (min-width: 345px) {
   .boldpo-float-sm-start {
     float: left !important;
   }
@@ -5004,7 +5004,7 @@
   --boldpo-gutter-y: 3rem;
 }
 
-@media (min-width: 576px) {
+@media (min-width: 345px) {
   .boldpo-col-sm {
     flex: 1 0 0;
   }

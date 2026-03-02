@@ -252,6 +252,18 @@ export default function Edit({ attributes, setAttributes }) {
                                 onChange={(value) => setAttributes({ [getAttrKey('itemGap', device)]: value })}
                                 __next40pxDefaultSize={true}
                                 __nextHasNoMarginBottom={true}
+                                max={5}
+                            />
+                        )}
+                    </ResponsiveWrapper>
+                    <ResponsiveWrapper label={__('Item Row Gap', 'boldpost')}>
+                        {(device) => (
+                            <TextControl
+                                value={attributes[getAttrKey('itemRowGap', device)]}
+                                onChange={(value) => setAttributes({ [getAttrKey('itemRowGap', device)]: value })}
+                                __next40pxDefaultSize={true}
+                                __nextHasNoMarginBottom={true}
+                                max={5}
                             />
                         )}
                     </ResponsiveWrapper>

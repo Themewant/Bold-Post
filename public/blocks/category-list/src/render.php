@@ -25,15 +25,38 @@ $responsive_data = [
 ];
 
 // Columns
-BOLDPO_Helper::add_responsive_vars($attributes, $responsive_data, 'columns', 'grid-template-columns', [], false);
-foreach(['desktop', 'tablet', 'mobile'] as $device) {
-    if(!empty($responsive_data[$device]['grid-template-columns'])) {
-        $responsive_data[$device]['grid-template-columns'] = 'repeat(' . $responsive_data[$device]['grid-template-columns'] . ', 1fr)';
-    }
-}
+$c_desktop = isset($attributes['columns']) ? (int)$attributes['columns'] : 3;
+$c_tablet  = isset($attributes['columnsTablet']) ? (int)$attributes['columnsTablet'] : $c_desktop;
+$c_mobile  = isset($attributes['columnsMobile']) ? (int)$attributes['columnsMobile'] : 1;
+
+$bs_col_lg = (int)(12 / $c_desktop);
+$bs_col_md = (int)(12 / $c_tablet);
+$bs_col_xs = (int)(12 / $c_mobile);
+
+$col_class = "boldpo-col-lg-{$bs_col_lg} boldpo-col-md-{$bs_col_md} boldpo-col-{$bs_col_xs}";
 
 // Gaps
-BOLDPO_Helper::add_responsive_vars($attributes, $responsive_data, 'itemGap', 'gap');
+$g_desktop = isset($attributes['itemGap']) ? $attributes['itemGap'] : '4';
+$g_tablet = isset($attributes['itemGapTablet']) ? $attributes['itemGapTablet'] : $g_desktop;
+$g_mobile = isset($attributes['itemGapMobile']) ? $attributes['itemGapMobile'] : 0;
+
+$gap_class = '';
+if ($g_desktop == $g_tablet && $g_tablet == $g_mobile) {
+    $gap_class = 'boldpo-gx-' . $g_desktop;
+} else {
+    $gap_class = 'boldpo-gx-lg-' . $g_desktop . ' boldpo-gx-md-' . $g_tablet . ' boldpo-gx-sm-' . $g_mobile;
+}
+
+$g_row_desktop = isset($attributes['itemRowGap']) ? $attributes['itemRowGap'] : '4';
+$g_row_tablet = isset($attributes['itemRowGapTablet']) ? $attributes['itemRowGapTablet'] : $g_row_desktop;
+$g_row_mobile = isset($attributes['itemRowGapMobile']) ? $attributes['itemRowGapMobile'] : 0;
+
+$gap_row_class = '';
+if ($g_row_desktop == $g_row_tablet && $g_row_tablet == $g_row_mobile) {
+    $gap_row_class = 'boldpo-gy-' . $g_row_desktop;
+} else {
+    $gap_row_class = 'boldpo-gy-lg-' . $g_row_desktop . ' boldpo-gy-md-' . $g_row_tablet . ' boldpo-gy-sm-' . $g_row_mobile;
+}
 
 // Item Styles
 $item_responsive = ['desktop' => [], 'tablet' => [], 'mobile' => []];
@@ -160,7 +183,7 @@ $block_wrap_attr = get_block_wrapper_attributes( array( 'class' => 'boldpo-block
 if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) :
 ?>
     <div <?php echo wp_kses_post($block_wrap_attr); ?>>
-        <div class="boldpo-category-list style-<?php echo esc_attr($style); ?>">
+        <div class="boldpo-category-list style-<?php echo esc_attr($style); ?> boldpo-row <?php echo esc_attr($gap_class); ?> <?php echo esc_attr($gap_row_class); ?>">
             <?php
             foreach ( $categories as $category ) :
                 $category_link = get_term_link( $category );
@@ -168,11 +191,12 @@ if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) :
                     continue;
                 }
             ?>
-                <div class="boldpo-category-item">
-                    <a href="<?php echo esc_url( $category_link ); ?>" class="boldpo-category-link">
-                        <div class="boldpo-category-content">
-                            <div class="boldpo-category-content-text">
-                                <<?php echo esc_attr($title_tag); ?> class="boldpo-category-title">
+                <div class="<?php echo esc_attr($col_class); ?>">
+                    <div class="boldpo-category-item">
+                        <a href="<?php echo esc_url( $category_link ); ?>" class="boldpo-category-link">
+                            <div class="boldpo-category-content">
+                                <div class="boldpo-category-content-text">
+                                    <<?php echo esc_attr($title_tag); ?> class="boldpo-category-title">
                                     <?php echo esc_html( $category->name ); ?>
                                 </<?php echo esc_attr($title_tag); ?>>
                                 <?php if ( $show_description && ! empty( $category->description ) ) : ?>
@@ -187,10 +211,9 @@ if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) :
                                     <?php echo esc_html( $category->count ); ?>
                                 </span>
                             <?php endif; ?>
-                            
-                            
                         </div>
                     </a>
+                    </div>
                 </div>
             <?php
             endforeach;

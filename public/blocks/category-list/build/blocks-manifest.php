@@ -124,15 +124,27 @@ return array(
 			),
 			'itemGap' => array(
 				'type' => 'string',
-				'default' => '10px'
+				'default' => '1'
 			),
 			'itemGapTablet' => array(
 				'type' => 'string',
-				'default' => '20px'
+				'default' => '1'
 			),
 			'itemGapMobile' => array(
 				'type' => 'string',
-				'default' => '20px'
+				'default' => '1'
+			),
+			'itemRowGap' => array(
+				'type' => 'string',
+				'default' => '2'
+			),
+			'itemRowGapTablet' => array(
+				'type' => 'string',
+				'default' => '2'
+			),
+			'itemRowGapMobile' => array(
+				'type' => 'string',
+				'default' => '1'
 			),
 			'itemTitleMargin' => array(
 				'type' => 'object',

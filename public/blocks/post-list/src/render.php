@@ -383,7 +383,14 @@ if ( $query->have_posts() ) :
         <div class="boldpo-post-list boldpo-row style-<?php echo esc_attr($style); ?> <?php echo esc_attr($gap_class); ?> <?php echo esc_attr($row_gap_class); ?>">
             <?php
             while ( $query->have_posts() ) : $query->the_post();
-                $sticky_class = is_sticky() ? 'sticky-post' : '';
+                $item_class = $col_class;
+                if(is_sticky()) {
+                    $item_class .= ' boldpo-sticky-post';
+                }
+
+                if(!empty($anim_style)) {
+                    $item_class .= ' ' . $anim_style;
+                }
                 $trimmed_title = wp_trim_words( get_the_title(), $title_trim, '...' );
                 $trimmed_excerpt = wp_trim_words( get_the_excerpt(), $excerpt_trim, '...' );
                

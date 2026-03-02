@@ -59,6 +59,8 @@ $responsive_data = [
     'mobile'  => []
 ];
 
+$col_class = '';
+
 // Gaps (Slider usually handles this in JS, but let's see if SCSS uses them)
 BOLDPO_Helper::add_responsive_vars($attributes, $responsive_data, 'itemColGap', 'column-gap');
 BOLDPO_Helper::add_responsive_vars($attributes, $responsive_data, 'itemRowGap', 'row-gap');
@@ -394,7 +396,14 @@ if ( $query->have_posts() ) :
             <div class="swiper-wrapper swiper-wrapper-<?php echo esc_attr($unique); ?>">
                 <?php
                     while ( $query->have_posts() ) : $query->the_post();
-                        $sticky_class = is_sticky() ? 'sticky-post' : '';
+                        $item_class = '';
+                        if(is_sticky()) {
+                            $item_class .= 'boldpo-sticky-post';
+                        }
+
+                        if(!empty($anim_style)) {
+                            $item_class .= ' ' . $anim_style;
+                        }
                         $trimmed_title = wp_trim_words( get_the_title(), $title_trim, '...' );
                         $trimmed_excerpt = wp_trim_words( get_the_excerpt(), $excerpt_trim, '...' );
                     

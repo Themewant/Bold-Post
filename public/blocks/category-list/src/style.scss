@@ -2,11 +2,6 @@
     width: 100%;
 
     .boldpo-category-list {
-        display: grid;
-        width: 100%;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-
         .boldpo-category-item {
             position: relative;
             transition: var(--boldpo-preset-hover-transition);

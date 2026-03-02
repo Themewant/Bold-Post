@@ -415,7 +415,7 @@
 		},
 		"itemRowGapMobile": {
 			"type": "string",
-			"default": "0"
+			"default": "3"
 		},
 		"itemPaddingTablet": {
 			"type": "object"

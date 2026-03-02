@@ -413,7 +413,7 @@ return array(
 			),
 			'itemRowGapMobile' => array(
 				'type' => 'string',
-				'default' => '0'
+				'default' => '3'
 			),
 			'itemPaddingTablet' => array(
 				'type' => 'object'

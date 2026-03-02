@@ -1,7 +1,7 @@
 <?php 
 	if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 ?>
-<div class="boldpo-list-item <?php echo esc_attr($col_class); ?> <?php echo esc_attr( $anim_style ); ?> <?php echo esc_attr( $sticky_class ); ?>">
+<div class="boldpo-list-item <?php echo esc_attr($item_class); ?>">
     <div class="boldpo-list-item-inner">
         
         <div class="boldpo-blog-img <?php echo esc_attr( $thumb_anim ); ?> <?php echo esc_attr( $anim_style ); ?>">

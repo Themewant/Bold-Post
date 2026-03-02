@@ -1,12 +1,6 @@
 .boldpo-category-list-block-wrap {
   width: 100%;
 }
-.boldpo-category-list-block-wrap .boldpo-category-list {
-  display: grid;
-  width: 100%;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
 .boldpo-category-list-block-wrap .boldpo-category-list .boldpo-category-item {
   position: relative;
   transition: var(--boldpo-preset-hover-transition);

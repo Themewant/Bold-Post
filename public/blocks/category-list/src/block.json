@@ -119,15 +119,27 @@
         },
         "itemGap": {
             "type": "string",
-            "default": "10px"
+            "default": "1"
         },
         "itemGapTablet": {
             "type": "string",
-            "default": "20px"
+            "default": "1"
         },
         "itemGapMobile": {
             "type": "string",
-            "default": "20px"
+            "default": "1"
+        },
+        "itemRowGap": {
+            "type": "string",
+            "default": "2"
+        },
+        "itemRowGapTablet": {
+            "type": "string",
+            "default": "2"
+        },
+        "itemRowGapMobile": {
+            "type": "string",
+            "default": "1"
         },
         "itemTitleMargin": {
             "type": "object",
