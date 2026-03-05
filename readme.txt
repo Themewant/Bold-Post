@@ -4,7 +4,7 @@ Tags: post grid, post list, post slider, gutenberg blocks, category list
 Requires at least: 6.0
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,6 +16,8 @@ Display posts beautifully with customizable grids, lists, sliders & category dis
 
 👉 [Plugin Demo](https://boldpost.themewant.com/)
 👉 [Documentation](https://documentation.themewant.com/docs/boldpost/)
+
+https://www.youtube.com/watch?v=1FM8cl7MEA8
 
 = Key Features =
 
@@ -69,6 +71,16 @@ BoldPost integrates seamlessly with the WordPress block editor, providing you wi
 = Performance Optimized =
 
 Built with performance in mind, BoldPost uses efficient queries and minimal JavaScript to ensure your site stays fast. The plugin only loads assets when needed and follows WordPress best practices for optimal performance.
+
+**🔥 WHAT’S NEXT**
+
+If you like The Our Plugin, then consider checking out other WordPress Plugins:
+
+[Easy Hotel Booking](https://wordpress.org/plugins/easy-hotel/) Powerful Hotel Booking Pluing
+[RT Mega Menu](https://wordpress.org/plugins/rt-mega-menu/) Advanced WordPress Mega Menu Builder for Elementor & Gutenberg
+[Easy Currency](https://wordpress.org/plugins/easy-currency/) Easy Currency Converter plugin for WooCommerce.
+[Easy Elements](https://wordpress.org/plugins/easy-elements/) Easy Elements for Elementor
+[Easy Menu Iocns](https://wordpress.org/plugins/easy-menu-icons/) WordPress Menu Icon Plugin
 
 == Installation ==
 

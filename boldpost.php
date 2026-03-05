@@ -5,7 +5,7 @@
  * Plugin URI:  https://themewant.com/downloads/boldpost/
  * Author:      Themewant
  * Author URI:  http://themewant.com/
- * Version:     1.0.4
+ * Version:     1.0.5
  * License:     GPL2
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: boldpost
@@ -14,7 +14,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-define( 'BOLDPO_VERSION', '1.0.4' );
+define( 'BOLDPO_VERSION', '1.0.5' );
 define( 'BOLDPO_PL_ROOT', __FILE__ );
 define( 'BOLDPO_PL_URL', plugins_url( '/', BOLDPO_PL_ROOT ) );
 define( 'BOLDPO_PL_PATH', plugin_dir_path( BOLDPO_PL_ROOT ) );
