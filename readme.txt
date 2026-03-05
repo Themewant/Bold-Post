@@ -144,16 +144,6 @@ Integrating Appsero SDK **DOES NOT IMMEDIATELY** start gathering data, **without
 
 Learn more about how [Appsero collects and uses this data](https://appsero.com/privacy-policy/).
 
-== Screenshots ==
-	
-01. Gutenberg Blocks
-02. Advanced query builder
-03. Grid Layout
-04. Grid Layout with Pagination
-05. Overlay Grid Layout
-06. Post List 
-07. Post Slider
-
 == Changelog ==
 
 = 1.0.5
