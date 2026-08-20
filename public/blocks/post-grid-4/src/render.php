@@ -397,8 +397,14 @@ $full_responsive_css = "";
 $full_responsive_css .= BOLDPO_Helper::generate_responsive_css($selector . ' .boldpo-post-grid-4.style-' . $style . ' .boldpo-grid-item .boldpo-grid-item-inner', $item_responsive);
 $full_responsive_css .= BOLDPO_Helper::generate_responsive_css($selector . ' .boldpo-post-grid-4.style-' . $style . ' .boldpo-grid-item .boldpo-blog-title', $title_responsive);
 $full_responsive_css .= BOLDPO_Helper::generate_responsive_css($selector . ' .boldpo-post-grid-4.style-' . $style . ' .boldpo-grid-item .boldpo-post-metas', $meta_responsive);
-$full_responsive_css .= BOLDPO_Helper::generate_responsive_css($selector . ' .boldpo-post-grid-4.style-' . $style . ' .boldpo-grid-col-left-wrap .boldpo-grid-item .boldpo-blog-title', $title_left_typo_responsive);
-$full_responsive_css .= BOLDPO_Helper::generate_responsive_css($selector . ' .boldpo-post-grid-4.style-' . $style . ' .boldpo-grid-col-right-wrap .boldpo-grid-item .boldpo-blog-title', $title_right_typo_responsive);
+if ( $style === '1' ) {
+    // Pro Style 1 renders split left/right column wraps.
+    $full_responsive_css .= BOLDPO_Helper::generate_responsive_css($selector . ' .boldpo-post-grid-4.style-' . $style . ' .boldpo-grid-col-left-wrap .boldpo-grid-item .boldpo-blog-title', $title_left_typo_responsive);
+    $full_responsive_css .= BOLDPO_Helper::generate_responsive_css($selector . ' .boldpo-post-grid-4.style-' . $style . ' .boldpo-grid-col-right-wrap .boldpo-grid-item .boldpo-blog-title', $title_right_typo_responsive);
+} else {
+    // Default uniform grid has no left/right wraps — apply title typography to every item title.
+    $full_responsive_css .= BOLDPO_Helper::generate_responsive_css($selector . ' .boldpo-post-grid-4.style-' . $style . ' .boldpo-grid-item .boldpo-blog-title', $title_left_typo_responsive);
+}
 $full_responsive_css .= BOLDPO_Helper::generate_responsive_css($selector . ' .boldpo-post-grid-4.style-' . $style . ' .boldpo-grid-item .boldpo-blog-excerpt', $excerpt_responsive);
 $full_responsive_css .= BOLDPO_Helper::generate_responsive_css($selector . ' .boldpo-post-grid-4.style-' . $style . ' .boldpo-grid-item .boldpo-blog-content', $content_padding_responsive);
 $full_responsive_css .= BOLDPO_Helper::generate_responsive_css($selector . ' .boldpo-post-grid-4.style-' . $style . ' .boldpo-grid-col-left-wrap .boldpo-grid-item .boldpo-blog-img img', $thumbnail_left_height_responsive);   

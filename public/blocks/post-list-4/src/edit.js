@@ -523,13 +523,7 @@ export default function Edit({ attributes, setAttributes }) {
 						<SelectControl
 							label={__('Pagination Type', 'boldpost')}
 							value={attributes.paginationType}
-							onChange={(value) => {
-								if (!isLicenseActive && !FREE_PAGINATION_VALUES.includes(value)) {
-									window.open(PRO_UPGRADE_URL, '_blank', 'noopener,noreferrer');
-									return;
-								}
-								setAttributes({ paginationType: value });
-							}}
+							onChange={(value) => setAttributes({ paginationType: value })}
 							options={paginationOptions}
 							__next40pxDefaultSize={true}
 							__nextHasNoMarginBottom={true}

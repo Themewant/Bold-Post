@@ -432,6 +432,22 @@
 			"type": "string",
 			"default": ""
 		},
+		"paginationBtnHeight": {
+			"type": "string",
+			"default": ""
+		},
+		"paginationBtnHeightTablet": {
+			"type": "string",
+			"default": ""
+		},
+		"paginationBtnHeightMobile": {
+			"type": "string",
+			"default": ""
+		},
+		"paginationBoxShadow": {
+			"type": "object",
+			"default": { "x": 0, "y": 5, "b": 10, "s": 0, "c": "rgba(14, 13, 13, 0.1)" }
+		},
 		"paginationBtnBorder": {
 			"type": "object",
 			"default": {

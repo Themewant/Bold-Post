@@ -69,10 +69,7 @@ export default function Edit({ attributes, setAttributes }) {
 	const paginationOptions = applyFilters(
 		'boldpost.post-grid.pagination_options',
 		[
-			{ label: __('Numeric', 'boldpost'), value: 'numeric' },
-			{ label: __('Numeric Ajax (Pro)', 'boldpost'), value: 'numeric_ajax' },
-			{ label: __('Load More (Pro)', 'boldpost'), value: 'load_more' },
-			{ label: __('Infinite Scroll (Pro)', 'boldpost'), value: 'infinite_scroll' }
+			{ label: __('Numeric', 'boldpost'), value: 'numeric' }
 		],
 		{ attributes, setAttributes }
 	);
@@ -250,7 +247,9 @@ export default function Edit({ attributes, setAttributes }) {
 						options={[
 							{ label: __('Default', 'boldpost'), value: 'default', src: layout1 },
 							{ label: __('Style 1', 'boldpost'), value: '1', src: layout2 },
-							{ label: __('Style 2', 'boldpost'), value: '2', src: layout3, isPro: true },
+							...(isLicenseActive ? [
+								{ label: __('Style 2', 'boldpost'), value: '2', src: layout3 },
+							] : []),
 						]}
 					/>
 				</PanelBody>
@@ -527,13 +526,7 @@ export default function Edit({ attributes, setAttributes }) {
 					<SelectControl
 						label={__('Pagination Type', 'boldpost')}
 						value={attributes.paginationType}
-						onChange={(value) => {
-							if (!isLicenseActive && !FREE_PAGINATION_VALUES.includes(value)) {
-								window.open(PRO_UPGRADE_URL, '_blank', 'noopener,noreferrer');
-								return;
-							}
-							setAttributes({ paginationType: value });
-						}}
+						onChange={(value) => setAttributes({ paginationType: value })}
 						options={paginationOptions}
 						__next40pxDefaultSize={true}
 						__nextHasNoMarginBottom={true}

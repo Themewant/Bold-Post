@@ -73,10 +73,7 @@ export default function Edit({ attributes, setAttributes }) {
 	const paginationOptions = applyFilters(
 		'boldpost.post-grid-2.pagination_options',
 		[
-			{ label: __('Numeric', 'boldpost'), value: 'numeric' },
-			{ label: __('Numeric Ajax (Pro)', 'boldpost'), value: 'numeric_ajax' },
-			{ label: __('Load More (Pro)', 'boldpost'), value: 'load_more' },
-			{ label: __('Infinite Scroll (Pro)', 'boldpost'), value: 'infinite_scroll' }
+			{ label: __('Numeric', 'boldpost'), value: 'numeric' }
 		],
 		{ attributes, setAttributes }
 	);
@@ -253,12 +250,14 @@ export default function Edit({ attributes, setAttributes }) {
 						onChange={(value) => setAttributes({ gridStyle: value })}
 						options={[
 							{ label: __('Default', 'boldpost'), value: 'default', src: layout1 },
-							{ label: __('Style 1', 'boldpost'), value: '1', src: layout2, isPro: true },
-							{ label: __('Style 2', 'boldpost'), value: '2', src: layout3, isPro: true },
-							{ label: __('Style 3', 'boldpost'), value: '3', src: layout4, isPro: true },
-							{ label: __('Style 4', 'boldpost'), value: '4', src: layout5, isPro: true },
-							{ label: __('Style 5', 'boldpost'), value: '5', src: layout6, isPro: true },
-							{ label: __('Style 6', 'boldpost'), value: '6', src: layout7, isPro: true }
+							...(isLicenseActive ? [
+								{ label: __('Style 1', 'boldpost'), value: '1', src: layout2 },
+								{ label: __('Style 2', 'boldpost'), value: '2', src: layout3 },
+								{ label: __('Style 3', 'boldpost'), value: '3', src: layout4 },
+								{ label: __('Style 4', 'boldpost'), value: '4', src: layout5 },
+								{ label: __('Style 5', 'boldpost'), value: '5', src: layout6 },
+								{ label: __('Style 6', 'boldpost'), value: '6', src: layout7 },
+							] : []),
 						]}
 					/>
 				</PanelBody>
@@ -429,73 +428,68 @@ export default function Edit({ attributes, setAttributes }) {
 								__nextHasNoMarginBottom={true}
 							/>
 							<ToggleControl
-								label={__('Show Date Badge', 'boldpost')}
-								checked={attributes.showDateOnTop}
-								onChange={(value) => { setAttributes({ showDateOnTop: value }); console.log(value); }}
-								__nextHasNoMarginBottom={true}
-							/>
-						</>
-					)}
-				</PanelBody>
+									label={__('Show Date Badge', 'boldpost')}
+									checked={attributes.showDateOnTop}
+									onChange={(value) => setAttributes({ showDateOnTop: value })}
+									__nextHasNoMarginBottom={true}
+								/>
+							</>
+						)}
+					</PanelBody>
 
-				<PanelBody title={__('Button', 'boldpost')} initialOpen={false}>
-					<ToggleControl
-						label={__('Show / Hide', 'boldpost')}
-						checked={attributes.showReadMore}
-						onChange={(value) => setAttributes({ showReadMore: value })}
-						__nextHasNoMarginBottom={true}
-					/>
-					{attributes.showReadMore && (
-						<>
-							<TextControl
-								label={__('Text', 'boldpost')}
-								value={attributes.readMoreText}
-								onChange={(value) => setAttributes({ readMoreText: value })}
-								__next40pxDefaultSize={true}
-								__nextHasNoMarginBottom={true}
-							/>
-							<IconPicker
-								label={__('Icon', 'boldpost')}
-								value={attributes.readMoreIcon}
-								onChange={(value) => setAttributes({ readMoreIcon: value })}
-							/>
-							<SelectControl
-								label={__('Icon Position', 'boldpost')}
-								value={attributes.readMoreIconPosition}
-								onChange={(value) => setAttributes({ readMoreIconPosition: value })}
-								options={[
-									{ label: __('Before', 'boldpost'), value: 'before' },
-									{ label: __('After', 'boldpost'), value: 'after' },
-								]}
-								__next40pxDefaultSize={true}
-								__nextHasNoMarginBottom={true}
-							/>
-						</>
-					)}
-				</PanelBody>
+					<PanelBody title={__('Button', 'boldpost')} initialOpen={false}>
+						<ToggleControl
+							label={__('Show / Hide', 'boldpost')}
+							checked={attributes.showReadMore}
+							onChange={(value) => setAttributes({ showReadMore: value })}
+							__nextHasNoMarginBottom={true}
+						/>
+						{attributes.showReadMore && (
+							<>
+								<TextControl
+									label={__('Text', 'boldpost')}
+									value={attributes.readMoreText}
+									onChange={(value) => setAttributes({ readMoreText: value })}
+									__next40pxDefaultSize={true}
+									__nextHasNoMarginBottom={true}
+								/>
+								<IconPicker
+									label={__('Icon', 'boldpost')}
+									value={attributes.readMoreIcon}
+									onChange={(value) => setAttributes({ readMoreIcon: value })}
+								/>
+								<SelectControl
+									label={__('Icon Position', 'boldpost')}
+									value={attributes.readMoreIconPosition}
+									onChange={(value) => setAttributes({ readMoreIconPosition: value })}
+									options={[
+										{ label: __('Before', 'boldpost'), value: 'before' },
+										{ label: __('After', 'boldpost'), value: 'after' },
+									]}
+									__next40pxDefaultSize={true}
+									__nextHasNoMarginBottom={true}
+								/>
+							</>
+						)}
+					</PanelBody>
 
-				<PanelBody title={__('Pagination', 'boldpost')} initialOpen={false}>
-					<ToggleControl
-						label={__('Show Pagination', 'boldpost')}
-						checked={attributes.pagination}
-						onChange={(value) => setAttributes({ pagination: value })}
-						__nextHasNoMarginBottom={true}
-					/>
-					<SelectControl
-						label={__('Pagination Type', 'boldpost')}
-						value={attributes.paginationType}
-						onChange={(value) => {
-							if (!isLicenseActive && !FREE_PAGINATION_VALUES.includes(value)) {
-								window.open(PRO_UPGRADE_URL, '_blank', 'noopener,noreferrer');
-								return;
-							}
-							setAttributes({ paginationType: value });
-						}}
-						options={paginationOptions}
-						__next40pxDefaultSize={true}
-						__nextHasNoMarginBottom={true}
-					/>
-				</PanelBody>
+					<PanelBody title={__('Pagination', 'boldpost')} initialOpen={false}>
+						<ToggleControl
+							label={__('Show Pagination', 'boldpost')}
+							checked={attributes.pagination}
+							onChange={(value) => setAttributes({ pagination: value })}
+							__nextHasNoMarginBottom={true}
+						/>
+						<SelectControl
+							label={__('Pagination Type', 'boldpost')}
+							value={attributes.paginationType}
+							onChange={(value) => setAttributes({ paginationType: value })}
+							options={paginationOptions}
+							__next40pxDefaultSize={true}
+							__nextHasNoMarginBottom={true}
+						/>
+					</PanelBody>
+
 
 			</InspectorControls>
 			<InspectorControls group='styles'>

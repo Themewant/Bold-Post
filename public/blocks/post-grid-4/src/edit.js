@@ -14,7 +14,7 @@ import { decodeEntities } from '@wordpress/html-entities';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
+import { useBlockProps, InspectorControls, BlockControls, AlignmentControl } from '@wordpress/block-editor';
 
 import {
 	PanelBody,
@@ -68,10 +68,7 @@ export default function Edit({ attributes, setAttributes }) {
 	const paginationOptions = applyFilters(
 		'boldpost.post-grid-4.pagination_options',
 		[
-			{ label: __('Numeric', 'boldpost'), value: 'numeric' },
-			{ label: __('Numeric Ajax (Pro)', 'boldpost'), value: 'numeric_ajax' },
-			{ label: __('Load More (Pro)', 'boldpost'), value: 'load_more' },
-			{ label: __('Infinite Scroll (Pro)', 'boldpost'), value: 'infinite_scroll' }
+			{ label: __('Numeric', 'boldpost'), value: 'numeric' }
 		],
 		{ attributes, setAttributes }
 	);
@@ -159,6 +156,12 @@ export default function Edit({ attributes, setAttributes }) {
 
 	return (
 		<div {...useBlockProps()}>
+			<BlockControls>
+				<AlignmentControl
+					value={attributes.contentTextAlign}
+					onChange={(value) => setAttributes({ contentTextAlign: value || '' })}
+				/>
+			</BlockControls>
 			<InspectorControls>
 				{/* {query panel group} */}
 				<PanelBody title={__('Query', 'boldpost')} initialOpen={false}>
@@ -250,7 +253,9 @@ export default function Edit({ attributes, setAttributes }) {
 						onChange={(value) => setAttributes({ gridStyle: value })}
 						options={[
 							{ label: __('Default', 'boldpost'), value: 'default', src: layout1 },
-							{ label: __('Style 1', 'boldpost'), value: '1', src: layout2 }
+							...(isLicenseActive ? [
+								{ label: __('Style 1', 'boldpost'), value: '1', src: layout2 },
+							] : []),
 						]}
 					/>
 				</PanelBody>
@@ -391,7 +396,7 @@ export default function Edit({ attributes, setAttributes }) {
 
 				<PanelBody title={__('Title', 'boldpost')} initialOpen={false}>
 					<SelectControl
-						label={__('Title Tag', 'boldpost')}
+						label={attributes.gridStyle === '1' ? __('Left Title Tag', 'boldpost') : __('Title Tag', 'boldpost')}
 						value={attributes.titleLeftTag}
 						onChange={(value) => setAttributes({ titleLeftTag: value })}
 						options={[
@@ -404,20 +409,22 @@ export default function Edit({ attributes, setAttributes }) {
 						__next40pxDefaultSize={true}
 						__nextHasNoMarginBottom={true}
 					/>
-					<SelectControl
-						label={__('Title Tag', 'boldpost')}
-						value={attributes.titleRightTag}
-						onChange={(value) => setAttributes({ titleRightTag: value })}
-						options={[
-							{ label: __('H2', 'boldpost'), value: 'h2' },
-							{ label: __('H3', 'boldpost'), value: 'h3' },
-							{ label: __('H4', 'boldpost'), value: 'h4' },
-							{ label: __('H5', 'boldpost'), value: 'h5' },
-							{ label: __('H6', 'boldpost'), value: 'h6' },
-						]}
-						__next40pxDefaultSize={true}
-						__nextHasNoMarginBottom={true}
-					/>
+					{attributes.gridStyle === '1' && (
+						<SelectControl
+							label={__('Right Title Tag', 'boldpost')}
+							value={attributes.titleRightTag}
+							onChange={(value) => setAttributes({ titleRightTag: value })}
+							options={[
+								{ label: __('H2', 'boldpost'), value: 'h2' },
+								{ label: __('H3', 'boldpost'), value: 'h3' },
+								{ label: __('H4', 'boldpost'), value: 'h4' },
+								{ label: __('H5', 'boldpost'), value: 'h5' },
+								{ label: __('H6', 'boldpost'), value: 'h6' },
+							]}
+							__next40pxDefaultSize={true}
+							__nextHasNoMarginBottom={true}
+						/>
+					)}
 					<NumberControl
 						label={__('Title Trim', 'boldpost')}
 						value={attributes.titleTrim}
@@ -506,73 +513,68 @@ export default function Edit({ attributes, setAttributes }) {
 								__nextHasNoMarginBottom={true}
 							/>
 							<ToggleControl
-								label={__('Show Date Badge', 'boldpost')}
-								checked={attributes.showDateOnTop}
-								onChange={(value) => { setAttributes({ showDateOnTop: value }); console.log(value); }}
-								__nextHasNoMarginBottom={true}
-							/>
-						</>
-					)}
-				</PanelBody>
+									label={__('Show Date Badge', 'boldpost')}
+									checked={attributes.showDateOnTop}
+									onChange={(value) => setAttributes({ showDateOnTop: value })}
+									__nextHasNoMarginBottom={true}
+								/>
+							</>
+						)}
+					</PanelBody>
 
-				<PanelBody title={__('Button', 'boldpost')} initialOpen={false}>
-					<ToggleControl
-						label={__('Show / Hide', 'boldpost')}
-						checked={attributes.showReadMore}
-						onChange={(value) => setAttributes({ showReadMore: value })}
-						__nextHasNoMarginBottom={true}
-					/>
-					{attributes.showReadMore && (
-						<>
-							<TextControl
-								label={__('Text', 'boldpost')}
-								value={attributes.readMoreText}
-								onChange={(value) => setAttributes({ readMoreText: value })}
-								__next40pxDefaultSize={true}
-								__nextHasNoMarginBottom={true}
-							/>
-							<IconPicker
-								label={__('Icon', 'boldpost')}
-								value={attributes.readMoreIcon}
-								onChange={(value) => setAttributes({ readMoreIcon: value })}
-							/>
-							<SelectControl
-								label={__('Icon Position', 'boldpost')}
-								value={attributes.readMoreIconPosition}
-								onChange={(value) => setAttributes({ readMoreIconPosition: value })}
-								options={[
-									{ label: __('Before', 'boldpost'), value: 'before' },
-									{ label: __('After', 'boldpost'), value: 'after' },
-								]}
-								__next40pxDefaultSize={true}
-								__nextHasNoMarginBottom={true}
-							/>
-						</>
-					)}
-				</PanelBody>
+					<PanelBody title={__('Button', 'boldpost')} initialOpen={false}>
+						<ToggleControl
+							label={__('Show / Hide', 'boldpost')}
+							checked={attributes.showReadMore}
+							onChange={(value) => setAttributes({ showReadMore: value })}
+							__nextHasNoMarginBottom={true}
+						/>
+						{attributes.showReadMore && (
+							<>
+								<TextControl
+									label={__('Text', 'boldpost')}
+									value={attributes.readMoreText}
+									onChange={(value) => setAttributes({ readMoreText: value })}
+									__next40pxDefaultSize={true}
+									__nextHasNoMarginBottom={true}
+								/>
+								<IconPicker
+									label={__('Icon', 'boldpost')}
+									value={attributes.readMoreIcon}
+									onChange={(value) => setAttributes({ readMoreIcon: value })}
+								/>
+								<SelectControl
+									label={__('Icon Position', 'boldpost')}
+									value={attributes.readMoreIconPosition}
+									onChange={(value) => setAttributes({ readMoreIconPosition: value })}
+									options={[
+										{ label: __('Before', 'boldpost'), value: 'before' },
+										{ label: __('After', 'boldpost'), value: 'after' },
+									]}
+									__next40pxDefaultSize={true}
+									__nextHasNoMarginBottom={true}
+								/>
+							</>
+						)}
+					</PanelBody>
 
-				<PanelBody title={__('Pagination', 'boldpost')} initialOpen={false}>
-					<ToggleControl
-						label={__('Show Pagination', 'boldpost')}
-						checked={attributes.pagination}
-						onChange={(value) => setAttributes({ pagination: value })}
-						__nextHasNoMarginBottom={true}
-					/>
-					<SelectControl
-						label={__('Pagination Type', 'boldpost')}
-						value={attributes.paginationType}
-						onChange={(value) => {
-							if (!isLicenseActive && !FREE_PAGINATION_VALUES.includes(value)) {
-								window.open(PRO_UPGRADE_URL, '_blank', 'noopener,noreferrer');
-								return;
-							}
-							setAttributes({ paginationType: value });
-						}}
-						options={paginationOptions}
-						__next40pxDefaultSize={true}
-						__nextHasNoMarginBottom={true}
-					/>
-				</PanelBody>
+					<PanelBody title={__('Pagination', 'boldpost')} initialOpen={false}>
+						<ToggleControl
+							label={__('Show Pagination', 'boldpost')}
+							checked={attributes.pagination}
+							onChange={(value) => setAttributes({ pagination: value })}
+							__nextHasNoMarginBottom={true}
+						/>
+						<SelectControl
+							label={__('Pagination Type', 'boldpost')}
+							value={attributes.paginationType}
+							onChange={(value) => setAttributes({ paginationType: value })}
+							options={paginationOptions}
+							__next40pxDefaultSize={true}
+							__nextHasNoMarginBottom={true}
+						/>
+					</PanelBody>
+
 
 			</InspectorControls>
 			<InspectorControls group='styles'>
@@ -751,7 +753,7 @@ export default function Edit({ attributes, setAttributes }) {
 						)}
 					</ResponsiveWrapper>
 					<Divider />
-					<ResponsiveWrapper label={__('Typography Left', 'boldpost')}>
+					<ResponsiveWrapper label={attributes.gridStyle === '1' ? __('Typography Left', 'boldpost') : __('Typography', 'boldpost')}>
 						{(device) => (
 							<TypographyControls
 								label={__('Typography', 'boldpost')}
@@ -761,16 +763,18 @@ export default function Edit({ attributes, setAttributes }) {
 							/>
 						)}
 					</ResponsiveWrapper>
-					<ResponsiveWrapper label={__('Typography Right', 'boldpost')}>
-						{(device) => (
-							<TypographyControls
-								label={__('Typography', 'boldpost')}
-								attributes={attributes}
-								setAttributes={setAttributes}
-								attributeKey={getAttrKey('itemTitleRightTypography', device)}
-							/>
-						)}
-					</ResponsiveWrapper>
+					{attributes.gridStyle === '1' && (
+						<ResponsiveWrapper label={__('Typography Right', 'boldpost')}>
+							{(device) => (
+								<TypographyControls
+									label={__('Typography', 'boldpost')}
+									attributes={attributes}
+									setAttributes={setAttributes}
+									attributeKey={getAttrKey('itemTitleRightTypography', device)}
+								/>
+							)}
+						</ResponsiveWrapper>
+					)}
 				</PanelBody>
 
 				<PanelBody title={__('Excerpt', 'boldpost')} initialOpen={false}>

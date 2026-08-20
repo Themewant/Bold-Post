@@ -437,6 +437,28 @@ return array(
 				'type' => 'string',
 				'default' => ''
 			),
+			'paginationBtnHeight' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'paginationBtnHeightTablet' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'paginationBtnHeightMobile' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'paginationBoxShadow' => array(
+				'type' => 'object',
+				'default' => array(
+					'x' => 0,
+					'y' => 5,
+					'b' => 10,
+					's' => 0,
+					'c' => 'rgba(14, 13, 13, 0.1)'
+				)
+			),
 			'paginationBtnBorder' => array(
 				'type' => 'object',
 				'default' => array(

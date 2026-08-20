@@ -584,10 +584,7 @@ if ( $query->have_posts() ) :
 
                     } else {
                         include $style_file;
-
-                         
                     }
-
                     
 
                 } elseif ( ($style == '6') && file_exists( $style_file ) ) {

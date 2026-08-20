@@ -71,8 +71,8 @@ if ( ! empty( $icon_padding ) ) {
 }
 if ( ! empty( $icon_border_radius ) ) $item_desktop['border-radius'] = $icon_border_radius;
 if ( $icon_border_width > 0 )  $item_desktop['border-width']  = $icon_border_width . 'px';
-if ( ! empty( $icon_bg_color ) )     $item_desktop['background-color'] = $icon_bg_color;
-if ( ! empty( $icon_border_color ) ) $item_desktop['border-color']     = $icon_border_color;
+if ( ! empty( $icon_bg_color ) )     $item_desktop['background-color'] = $icon_bg_color . ' !important';
+if ( ! empty( $icon_border_color ) ) $item_desktop['border-color']     = $icon_border_color . ' !important';
 if ( $icon_border_width > 0 )        $item_desktop['border-style']     = 'solid';
 
 $item_responsive = array( 'desktop' => $item_desktop, 'tablet' => array(), 'mobile' => array() );
@@ -82,7 +82,7 @@ $icon_el_desktop = array();
 $icon_el_tablet  = array();
 $icon_el_mobile  = array();
 
-if ( ! empty( $icon_color ) )   $icon_el_desktop['color'] = $icon_color;
+if ( ! empty( $icon_color ) )   $icon_el_desktop['color'] = $icon_color . ' !important';
 $icon_el_desktop['font-size'] = $icon_size . 'px';
 if ( null !== $icon_size_tablet ) $icon_el_tablet['font-size'] = $icon_size_tablet . 'px';
 if ( null !== $icon_size_mobile ) $icon_el_mobile['font-size'] = $icon_size_mobile . 'px';
@@ -109,23 +109,23 @@ $label_responsive = array( 'desktop' => $label_desktop, 'tablet' => array(), 'mo
 // Hover states (inline rules)
 $hover_extra = array();
 if ( ! empty( $icon_color_hover ) ) {
-    $hover_extra[ $selector . ' .boldpo-social-icon-item:hover .boldpo-icon' ] = 'color:' . $icon_color_hover . ' !important;';
+    $hover_extra[ $selector . ' .boldpo-social-icons .boldpo-social-icon-item:hover .boldpo-icon' ] = 'color:' . $icon_color_hover . ' !important;';
 }
 if ( ! empty( $icon_bg_color_hover ) ) {
-    $hover_extra[ $selector . ' .boldpo-social-icon-item:hover' ] = ( $hover_extra[ $selector . ' .boldpo-social-icon-item:hover' ] ?? '' ) . 'background-color:' . $icon_bg_color_hover . ' !important;';
+    $hover_extra[ $selector . ' .boldpo-social-icons .boldpo-social-icon-item:hover' ] = ( $hover_extra[ $selector . ' .boldpo-social-icons .boldpo-social-icon-item:hover' ] ?? '' ) . 'background-color:' . $icon_bg_color_hover . ' !important;';
 }
 if ( ! empty( $icon_border_color_hover ) ) {
-    $hover_extra[ $selector . ' .boldpo-social-icon-item:hover' ] = ( $hover_extra[ $selector . ' .boldpo-social-icon-item:hover' ] ?? '' ) . 'border-color:' . $icon_border_color_hover . ' !important;';
+    $hover_extra[ $selector . ' .boldpo-social-icons .boldpo-social-icon-item:hover' ] = ( $hover_extra[ $selector . ' .boldpo-social-icons .boldpo-social-icon-item:hover' ] ?? '' ) . 'border-color:' . $icon_border_color_hover . ' !important;';
 }
 if ( ! empty( $label_color_hover ) ) {
-    $hover_extra[ $selector . ' .boldpo-social-icon-item:hover .boldpo-social-icon-label' ] = 'color:' . $label_color_hover . ' !important;';
+    $hover_extra[ $selector . ' .boldpo-social-icons .boldpo-social-icon-item:hover .boldpo-social-icon-label' ] = 'color:' . $label_color_hover . ' !important;';
 }
 
 // Generate full CSS
 $full_css  = BOLDPO_Helper::generate_responsive_css( $selector . ' .boldpo-social-icons', $wrap_responsive );
-$full_css .= BOLDPO_Helper::generate_responsive_css( $selector . ' .boldpo-social-icon-item', $item_responsive );
-$full_css .= BOLDPO_Helper::generate_responsive_css( $selector . ' .boldpo-social-icon-item .boldpo-icon', $icon_el_responsive );
-$full_css .= BOLDPO_Helper::generate_responsive_css( $selector . ' .boldpo-social-icon-label', $label_responsive );
+$full_css .= BOLDPO_Helper::generate_responsive_css( $selector . ' .boldpo-social-icons .boldpo-social-icon-item', $item_responsive );
+$full_css .= BOLDPO_Helper::generate_responsive_css( $selector . ' .boldpo-social-icons .boldpo-social-icon-item .boldpo-icon', $icon_el_responsive );
+$full_css .= BOLDPO_Helper::generate_responsive_css( $selector . ' .boldpo-social-icons .boldpo-social-icon-label', $label_responsive );
 
 // Add hover rules as extra
 foreach ( $hover_extra as $hover_selector => $hover_rules ) {
